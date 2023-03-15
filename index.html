@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <link rel="icon" sizes="192x192" href="images/android-chrome-192x192.png">
+  <link rel="icon" sizes="512x512" href="images/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!--NAVBAR START HERE-->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <img src="images/logo.png" alt="Logo" width="80" height="45" class="d-inline-block align-text-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">WEATHER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about.html">About this App</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus.html">Contact Us</a>
+          </li>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search Weather here..."
+            aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!--NAVBAR ENDS HERE-->
+
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold text-center">Weather of <span id="cityName"></span></h1>
+    </div>
+  </div>
+
+  <!--MAIN PAGE STARTED HERE-->
+
+  <!--Mian content starts here-->
+  <div class="container">
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    </div>
+    </header>
+
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Temperature</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="temp_two"></span><small
+                  class="text-muted fw-light">&#8451;</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Temperature <span id="temp"></span></li>
+                <li>Min Temp <span id="min_temp"></span></li>
+                <li>Max Temp <span id="max_temp"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Humidity</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="humidity_two"></span><small
+                  class="text-muted fw-light">&#37</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Cloud PCT <span id="cloud_pct"></span></li>
+                <li>Feels Like <span id="feels_like"></span></li>
+                <li>humidity <span id="humidity"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Winds Speed</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="wind_speed_two"></span><small
+                  class="text-muted fw-light">km/h</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind Speed <span id="wind_speed"></span></li>
+                <li>Wind Degrees <span id="wind_degrees"></span></li>
+                <li>Sunrise Time <span id="sunrise"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="display-6 text-center mb-4 p-5">Weather Of Other Places</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 34%;"> Cloud_pct </td>
+              <th style="width: 34%;"> Feels_like </td>
+              <th style="width: 34%;"> Humidity </td>
+              <th style="width: 34%;"> Max_temp </td>
+              <th style="width: 34%;"> Min_temp </td>
+              <th style="width: 34%;"> Sunrise </td>
+              <th style="width: 34%;"> Sunset </td>
+              <th style="width: 34%;"> Temp </td>
+              <th style="width: 34%;"> Wind_degrees </td>
+              <th style="width: 34%;"> Wind_speed </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Lahore</th>
+              <td id="lahore_cloud_pct"></td>
+              <td id="lahore_feels_like"></td>
+              <td id="lahore_humidity"></td>
+              <td id="lahore_max_temp"></td>
+              <td id="lahore_min_temp"></td>
+              <td id="lahore_sunrise"></td>
+              <td id="lahore_sunset"></td>
+              <td id="lahore_temp"></td>
+              <td id="lahore_wind_degrees"></td>
+              <td id="lahore_wind_speed"></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Islamabad</th>
+              <td id="islamabad_cloud_pct"></td>
+              <td id="islamabad_feels_like"></td>
+              <td id="islamabad_humidity"></td>
+              <td id="islamabad_max_temp"></td>
+              <td id="islamabad_min_temp"></td>
+              <td id="islamabad_sunrise"></td>
+              <td id="islamabad_sunset"></td>
+              <td id="islamabad_temp"></td>
+              <td id="islamabad_wind_degrees"></td>
+              <td id="islamabad_wind_speed"></td>
+
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr >
+              <th scope="row" class="text-start">Murree</th>
+              <td id="murree_cloud_pct"></td>
+              <td id="murree_feels_like"></td>
+              <td id="murree_humidity"></td>
+              <td id="murree_max_temp"></td>
+              <td id="murree_min_temp"></td>
+              <td id="murree_sunrise"></td>
+              <td id="murree_sunset"></td>
+              <td id="murree_temp"></td>
+              <td id="murree_wind_degrees"></td>
+              <td id="murree_wind_speed"></td>
+
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Mardan</th>
+              <td id="mardan_cloud_pct"></td>
+              <td id="mardan_feels_like"></td>
+              <td id="mardan_humidity"></td>
+              <td id="mardan_max_temp"></td>
+              <td id="mardan_min_temp"></td>
+              <td id="mardan_sunrise"></td>
+              <td id="mardan_sunset"></td>
+              <td id="mardan_temp"></td>
+              <td id="mardan_wind_degrees"></td>
+              <td id="mardan_wind_speed"></td>
+
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Peshawar</th>
+              <td id="peshawar_cloud_pct"></td>
+              <td id="peshawar_feels_like"></td>
+              <td id="peshawar_humidity"></td>
+              <td id="peshawar_max_temp"></td>
+              <td id="peshawar_min_temp"></td>
+              <td id="peshawar_sunrise"></td>
+              <td id="peshawar_sunset"></td>
+              <td id="peshawar_temp"></td>
+              <td id="peshawar_wind_degrees"></td>
+              <td id="peshawar_wind_speed"></td>
+              
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Quetta</th>
+              <td id="quetta_cloud_pct"></td>
+              <td id="quetta_feels_like"></td>
+              <td id="quetta_humidity"></td>
+              <td id="quetta_max_temp"></td>
+              <td id="quetta_min_temp"></td>
+              <td id="quetta_sunrise"></td>
+              <td id="quetta_sunset"></td>
+              <td id="quetta_temp"></td>
+              <td id="quetta_wind_degrees"></td>
+              <td id="quetta_wind_speed"></td>              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <!--Mian content starts here-->
+
+  <!--Footer Starts here-->
+
+  <div class="container">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="/index.html" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="/contactus.html" class="nav-link px-2 text-muted">Contact</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="/about.html" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+      <p class="text-center text-muted">© 2022-2023 Weather.Inc </p>
+    </footer>
+  </div>
+  <!--Footer ends here-->
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
